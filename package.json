@@ -1,8 +1,11 @@
 {
   "name": "hierarchical-copy",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Copy files hierarchically with wildcards supports",
   "main": "./lib/copy.js",
+  "bin": {
+    "rcp": "./bin/rcp"
+  },
   "repository": "git@github.com:thundernet8/hierarchical-copy.git",
   "author": "WuXueqian <wuxueqian2010@hotmail.com>",
   "license": "MIT",
