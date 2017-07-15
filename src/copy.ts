@@ -2,6 +2,7 @@ import * as process from "process";
 import * as fs from "fs";
 import * as path from "path";
 import * as vinylfs from "vinyl-fs";
+import * as map from "map-stream";
 import * as pkg from "../package.json";
 import * as colors from "colors";
 
@@ -57,26 +58,15 @@ if (!fs.lstatSync(base).isDirectory()) {
 const sources = argvs.slice(0, argvs.length - 1);
 const dest = argvs[argvs.length - 1];
 
-const destHandler = file => {
-  let input = file.path;
-  let output = path.resolve(dest);
-  if (file.path.startsWith(base)) {
-    output = path.resolve(
-      dest,
-      file.path.replace(new RegExp(`^${base}/?(.*)`), (m, p1) => {
-        return p1;
-      })
-    );
-  }
-
+const log = (file, cb) => {
   if (verbose) {
-    console.log(`${colors.yellow(input)}\n--->${colors.green(output)}\n`);
+    console.log(`${colors.green(file.path)}\n`);
   }
-  return output;
+  cb(null, file);
 };
 
 try {
-  vinylfs.src(sources).pipe(vinylfs.dest(destHandler));
+  vinylfs.src(sources).pipe(map(log)).pipe(vinylfs.dest(dest));
 } catch (e) {
   throw e;
 }

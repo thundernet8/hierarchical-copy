@@ -16,15 +16,9 @@ yarn global add hierarchical-copy
 
 ## Usage
 ```
-rcp src/js/**/*.js ./dist
+rcp 'src/js/**/*.js' ./dist
 ```
-
-with relative path option will affect the output files paths
-```
-rcp -b src src/js/**/*.js ./dist // e.g src/js/clients/test.js -> dist/js/clients/test.js
-
-rcp -b src/js src/js/**/*.js ./dist // e.g src/js/clients/test.js -> dist/clients/test.js
-```
+Notes: you should wrap a glob with quote, otherwise node will auto glob in unix envs and result in unexpect actions.
 
 with verbose option will log file paths
 ```
