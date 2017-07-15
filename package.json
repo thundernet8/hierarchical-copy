@@ -1,6 +1,6 @@
 {
   "name": "hierarchical-copy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Copy files hierarchically with wildcards supports",
   "main": "./lib/copy.js",
   "bin": {
@@ -10,12 +10,12 @@
   "author": "WuXueqian <wuxueqian2010@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "map-stream": "^0.0.7",
     "typescript": "^2.4.1",
     "vinyl-fs": "^2.4.4"
   },
   "devDependencies": {
-    "@types/node": "^8.0.13",
-    "map-stream": "^0.0.7"
+    "@types/node": "^8.0.13"
   },
   "scripts": {
     "build": "tsc",
