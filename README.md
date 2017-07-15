@@ -2,8 +2,6 @@
 
 Copy files hierarchically with wildcards supports.
 
-If you just want copy files with simple command across platforms, forgot `rsync` and `ditto` on OSX, `cp --parents` on linux, use this right now.
-
 ## Install
 
 npm
@@ -18,8 +16,14 @@ yarn global add hierarchical-copy
 
 ## Usage
 ```
-rcp ./examples/*.txt ./dist
-rcp src/js/**/*.js !src/others/**/*.js ./dist
+rcp src/js/**/*.js ./dist
+```
+
+with relative path option will affect the output files paths
+```
+rcp -b src src/js/**/*.js ./dist // e.g src/js/clients/test.js -> dist/js/clients/test.js
+
+rcp -b src/js src/js/**/*.js ./dist // e.g src/js/clients/test.js -> dist/clients/test.js
 ```
 
 with verbose option will log file paths
