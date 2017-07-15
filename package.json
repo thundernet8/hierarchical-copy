@@ -1,0 +1,21 @@
+{
+  "name": "hierarchical-copy",
+  "version": "0.1.0",
+  "description": "Copy files hierarchically with wildcards supports",
+  "main": "./lib/copy.js",
+  "repository": "git@github.com:thundernet8/hierarchical-copy.git",
+  "author": "WuXueqian <wuxueqian2010@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^2.4.1",
+    "vinyl-fs": "^2.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.13",
+    "map-stream": "^0.0.7"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  }
+}
